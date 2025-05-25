@@ -6,6 +6,10 @@ library(seqinr)
 library(stringr)
 library(readxl)
 
+# import VEP annotations 
+ebv_dt_vep <- readRDS("../output/full_EBV_annotation.rds") %>%
+  mutate(id = paste0("chrEBV", Location, REF, ">", ALT))
+
 # known epitopes 
 known_EBV <- read_xlsx("../data/epitope_table_export_1745338611.xlsx")
 
@@ -117,7 +121,7 @@ total_c12 <- rbind(full_merge_df_class2 %>% mutate(class = "class2"),
                    full_merge_df  %>% mutate(class = "class1"))
 total_c12$known <- total_c12$Peptide %in% ( known_EBV[[3]])
 
-
+write.table(total_c12, file = "../output/C12_allPeptides.tsv", sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 redgrey <- total_c12 %>%
   arrange(known) %>% 
   mutate(coord_midpoint = width*rel_position + start) %>%
