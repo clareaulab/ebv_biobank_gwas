@@ -35,6 +35,10 @@ This takes ~1-2 hours on a single core machine and will occupy only a few gigaby
 Hence, the full analysis for extracting these data should only cost a ~10 USD, which fits easily
 within the free credits available to AoU researchers. 
 
+For the UK Biobank data, .bam files were accessed on a local cluster. Hence, the 
+`samtools view` command was sufficient. To the best of our knowledge, 
+`samtools view` is not compatible with `.cram` files hosted on buckets; hence, the gatk command seems necessary.
+
 ## EBV reference
 
 Many files in this repository are pulled from the nuccore of the main EBV contig contained in the 
@@ -48,6 +52,10 @@ this repository in compliance with data sharing agreements with these consortium
 What are included allow for more processed analyses to be replicated. 
 [Contact Caleb Lareau](lareauc@mskcc.org) for assistance in engineering these features 
 on your own workspace. 
+
+All custom analyses were performed using the `R 4.4.0` software enviroment. 
+Set your working directory in `code` in the base of any of these three
+to run the R code line-by-line.
 
 ### celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 
