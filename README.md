@@ -5,8 +5,8 @@ Repository of analyses supporting analyses in Nyeo et al. 2025
 
 ## Consortia
 
-For this work, we made extensive use of the [UK Biobank](https://ukbiobank.dnanexus.com/login)
-and [All of Us](https://www.researchallofus.org/data-tools/workbench/). These data sources are available
+For this work, we made extensive use of the [UK Biobank (UKB)](https://ukbiobank.dnanexus.com/login)
+and [All of Us (AoU)](https://www.researchallofus.org/data-tools/workbench/). These data sources are available
 for qualified researchers to access genetic and phenotypic data on ~750,000 total individuals. 
 
 ## Extracting reads per EBV contig
@@ -32,7 +32,7 @@ A few notes:
 - The asterisks in place should be replaced with the individual ID. 
 
 This takes ~1-2 hours on a single core machine and will occupy only a few gigabytes of disk space. 
-Hence, the full analysis for extracting these data should only cost a ~10 USD, which fits easily
+Hence, the full analysis for extracting these data should only cost ~10 USD, which fits easily
 within the free credits available to AoU researchers. 
 
 For the UK Biobank data, .bam files were accessed on a local cluster. Hence, the 
@@ -48,12 +48,12 @@ hg38 reference genome (sequenced from the Raji cell line). The full data
 ## Reproducing downstream analyses
 
 As many analyses require access to individual-level data, many of these are omitted from 
-this repository in compliance with data sharing agreements with these consortium. 
+this repository in compliance with data sharing agreements with these consortia. 
 What are included allow for more processed analyses to be replicated. 
 [Contact Caleb Lareau](lareauc@mskcc.org) for assistance in engineering these features 
 on your own workspace. 
 
-All custom analyses were performed using the `R 4.4.0` software enviroment. 
+All custom analyses were performed using the `R 4.4.0` software environment. 
 Set your working directory in `code` in the base of any of these three
 to run the R code line-by-line.
 
@@ -64,11 +64,11 @@ This folder contains code for pathway and cell type enrichment analyses of the
 ### epitope-scoring
 This folder contains code needed to create the processed peptide files 
 as well as results from running NetMHC (I+II). Additional files for enrichment
-analyses of known IEDB epitopes are also contained here (Fig. 5)
+analyses of known IEDB epitopes are also contained here (Fig. 5).
 
 ### viral-sequences
 This folder contains aggregated data of the EBV contig from both consortia, 
 including workflows for integrating these allele frequencies with annotations 
-of the EBV contig (see ED Fig. 6)
+of the EBV contig (see ED Fig. 6).
 
 <br><br>
