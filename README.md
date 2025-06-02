@@ -49,6 +49,11 @@ What are included allow for more processed analyses to be replicated.
 [Contact Caleb Lareau](lareauc@mskcc.org) for assistance in engineering these features 
 on your own workspace. 
 
+### all-of-us-notebooks
+This folder contains all of the major notebooks used for assembling the EBV quantification,
+performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as
+an exposure for complex trait associations. 
+
 ### celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 
 147 genes with protein-altering variation from the ExWAS analyses (Figure 4). 
