@@ -1,6 +1,6 @@
 # Population-scale sequencing resolves correlates and determinants of latent Epstein-Barr Virus infection
 
-Repository of analyses supporting analyses in Nyeo et al. 2025
+Repository of code and processed data supporting analyses in Nyeo et al. 2025.
 
 
 ## Consortia
@@ -62,17 +62,16 @@ This folder contains all of the major notebooks used for assembling the EBV quan
 performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as
 an exposure for complex trait associations. (Fig. 1-3)
 
-
-### celltype-pathway-mapping
+## celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 
 147 genes with protein-altering variation from the ExWAS analyses (Figure 4). 
 
-### epitope-scoring
+## epitope-scoring
 This folder contains code needed to create the processed peptide files 
 as well as results from running NetMHC (I+II). Additional files for enrichment
 analyses of known IEDB epitopes are also contained here (Fig. 5).
 
-### viral-sequences
+## viral-sequences
 This folder contains aggregated data of the EBV contig from both consortia, 
 including workflows for integrating these allele frequencies with annotations 
 of the EBV contig (see ED Fig. 6).
