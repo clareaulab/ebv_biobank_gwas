@@ -18,7 +18,7 @@ associated with the aligned sequences rather than the costs of moving the entire
 An example of this command is shown below that was used in a `for` loop for processing 
 the All of Us consortium:
 
-```
+```shell
 ./gatk-4.2.6.0/gatk PrintReads -I gs://fc-aou-datasets-controlled/pooled/wgs/cram/v7_delta/wgs_*****.cram \
 	-L chrEBV -R Homo_sapiens_assembly38.fasta -O ID*****ebv.bam \
 	--gcs-project-for-requester-pays $GOOGLE_PROJECT --cloud-prefetch-buffer 0 \
@@ -57,25 +57,56 @@ All custom analyses were performed using the `R 4.4.0` software environment.
 Set your working directory in `code` in the base of any of these three
 to run the R code line-by-line.
 
-## all-of-us-notebooks
+### all-of-us-notebooks
 This folder contains all of the major notebooks used for assembling the EBV quantification,
 performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as
-an exposure for complex trait associations. (Fig. 1-3)
+an exposure for complex trait associations within AoU (Fig. 2,3; ED Fig. 1,3).
 
-## celltype-pathway-mapping
+### celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 
-147 genes with protein-altering variation from the ExWAS analyses (Figure 4). 
+147 genes with protein-altering variation from the ExWAS analyses (Fig. 4). 
 
-## epitope-scoring
+### epitope-scoring
 This folder contains code needed to create the processed peptide files 
 as well as results from running NetMHC (I+II). Additional files for enrichment
 analyses of known IEDB epitopes are also contained here (Fig. 5).
 
-## viral-sequences
+### viral-sequences
 This folder contains aggregated data of the EBV contig from both consortia, 
 including workflows for integrating these allele frequencies with annotations 
-of the EBV contig (see ED Fig. 6).
+of the EBV contig (ED Fig. 6).
 
+### Additional notes 
+Packages that are not available on the standard R CRAN repository can be installed via Bioconductor or directly from the GitHub source code.
+For example, the following packages can be installed via these commands:
 
+```R
+# install BuenColors: 
+devtools::install_github("caleblareau/BuenColors")
 
+# install SeuratDisk for R 4.4.0: 
+remotes::install_github("mojaveazure/seurat-disk")
+
+# install annotables: 
+devtools::install_github("stephenturner/annotables")
+
+# install clusterProfiler:
+# first, install clusterProfiler dependencies: 
+install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/devel/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
+pak::pkg_install("fgsea")
+# then install from Bioconductor: 
+BiocManager::install("clusterProfiler")
+
+# install ReactomePA:
+BiocManager::install("ReactomePA")
+
+# install org.Hs.eg.db:
+BiocManager::install("org.Hs.eg.db")
+
+# install Biostrings:
+BiocManager::install("Biostrings")
+
+# install rtracklayer:
+BiocManager::install("rtracklayer")
+```
 <br><br>
