@@ -1,7 +1,6 @@
 library(BuenColors)
 library(clusterProfiler)
 library(ReactomePA)
-library(clusterProfiler)
 library(dplyr)
 library(org.Hs.eg.db)
 library(annotables)
@@ -105,7 +104,7 @@ head(goBP_enrich_all[,!(colnames(goBP_enrich_all) %in% c("geneID"))])
 head(goBP_enrich_no6[,!(colnames(goBP_enrich_no6) %in% c("geneID"))])
 
 library(ggrepel)
-p0 <- ggplot(goBP_enrich_all, aes(x = FoldEnrichment, y = -log10(qvalue), label = Description)) +
+p0 <- ggplot(goBP_enrich_all, aes(x = fold_enrichment, y = -log10(qvalue), label = Description)) +
   geom_point(size = 0.5) + geom_text_repel(max.overlaps = 5,  size = 1) +
   pretty_plot(fontsize = 8) + L_border()
 
@@ -113,9 +112,9 @@ p0 <- ggplot(goBP_enrich_all, aes(x = FoldEnrichment, y = -log10(qvalue), label 
 kegg_enrich <- enrichKEGG(gene = enriched_genes$ENTREZID,
                             pAdjustMethod = "BH",
                             universe = background_allgenes$ENTREZID, 
-                            qvalueCutoff  = 0.05) %>% as.data.frame()
+                            qvalueCutoff  = 0.05) %>% as.data.frame() %>% calc_fold_enrichments()
 
-p1 <- ggplot(kegg_enrich, aes(x = FoldEnrichment, y = -log10(qvalue), label = Description)) +
+p1 <- ggplot(kegg_enrich, aes(x = fold_enrichment, y = -log10(qvalue), label = Description)) +
   geom_point(size = 0.5) + geom_text_repel(max.overlaps = 5, size = 1) +
   pretty_plot(fontsize = 8) + L_border()
 cowplot::ggsave2(p0, file = "../plots/go_bp_volcano.pdf", width = 3.75, height = 2.5)
