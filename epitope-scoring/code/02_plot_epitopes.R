@@ -6,10 +6,6 @@ library(seqinr)
 library(stringr)
 library(readxl)
 
-# import VEP annotations 
-ebv_dt_vep <- readRDS("../output/full_EBV_annotation.rds") %>%
-  mutate(id = paste0("chrEBV", Location, REF, ">", ALT))
-
 # known epitopes 
 known_EBV <- read_xlsx("../data/epitope_table_export_1745338611.xlsx")
 
