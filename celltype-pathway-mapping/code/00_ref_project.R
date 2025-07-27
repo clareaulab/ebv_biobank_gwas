@@ -9,7 +9,8 @@ library(SeuratDisk)
 library(viridis)
 library(annotables)
 
-# import reference
+# Import reference
+## NOTE: The human PBMC dataset can be downloaded here: https://azimuth.hubmapconsortium.org/references/#Human%20-%20PBMC 
 ref_path <- "~/Dropbox/main_papers/pearson/pearson_large_data_files/input/pbmc/pbmc_multimodal.h5seurat"
 
 options(future.globals.maxSize = 4000 * 1024^2)
