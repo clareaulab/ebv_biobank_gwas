@@ -1,6 +1,6 @@
 # Population-scale sequencing resolves correlates and determinants of latent Epstein-Barr Virus infection
 
-Repository of code and processed data supporting analyses in Nyeo et al. 2025.
+Repository of code and processed data supporting analyses in [Nyeo et al. 2025.](https://www.biorxiv.org/content/10.1101/2025.07.18.665549v1)
 
 
 ## Consortia
@@ -11,7 +11,7 @@ for qualified researchers to access genetic and phenotypic data on ~750,000 tota
 
 ## Extracting reads per EBV contig
 
-The most cost-efficient way to access the EBV data from the .cram files containing aligned
+The most cost-efficient way to access the EBV data from the `.cram` files containing aligned
 WGS data is to stream the reads via GATK. This allows you to only pay egress costs 
 associated with the aligned sequences rather than the costs of moving the entire cram. 
 
@@ -37,7 +37,16 @@ within the free credits available to AoU researchers.
 
 For the UK Biobank data, .bam files were accessed on a local cluster. Hence, the 
 `samtools view` command was sufficient. To the best of our knowledge, 
-`samtools view` is not compatible with `.cram` files hosted on buckets; hence, the gatk command seems necessary.
+`samtools view` is not compatible with `.cram` files hosted on buckets; hence, the `gatk` command seems necessary.
+
+
+```
+samtools view Donor_*******.wgs.bam chrEBV -b -o Donor_*******.ebv.bam
+```
+
+The `.bam` files were then processed in downstream analyses identical to the `bplapply`
+function outlined in `all-of-us-notebooks/EBV_DNA_Quantification/01_Quantify_EBV_DNA.ipynb`. 
+
 
 ## EBV reference
 
@@ -50,8 +59,8 @@ hg38 reference genome (sequenced from the Raji cell line). The full data
 As many analyses require access to individual-level data, many of these are omitted from 
 this repository in compliance with data sharing agreements with these consortia. 
 What are included allow for more processed analyses to be replicated. 
-[Contact Caleb Lareau](lareauc@mskcc.org) for assistance in engineering these features 
-on your own workspace. 
+[Contact Caleb Lareau](lareauc@mskcc.org) if you require any assistance in engineering these features 
+on your own workspace. Alternatively, we provide a minimal working example with the 1000G project on Terra. 
 
 All custom analyses were performed using the `R 4.4.0` software environment. 
 Set your working directory in `code` in the base of any of these three
@@ -71,12 +80,21 @@ This folder contains code needed to create the processed peptide files
 as well as results from running NetMHC (I+II). Additional files for enrichment
 analyses of known IEDB epitopes are also contained here (Fig. 5).
 
+### mwe-1000G
+Due to restrictions of shaing data in the UKB and AoU, we provide a sufficient
+minimal working example (mwe) to ensure users can go from `.cram/.bam` files in 
+WGS to per person, per position quantifications of EBV. This folder
+has an R-based `.ipynb` for the workflow to pull WGS files and estimate EBV abundance
+from the 1000 Genomes Project, which hosts all WGS data as publicly available. 
+The [Terra workspace (publicly available) is available here](https://app.terra.bio/#workspaces/anvil-datastorage/1000G-high-coverage-2019). 
+The script assumes the default "copy" of this workspace. 
+
 ### viral-sequences
 This folder contains aggregated data of the EBV contig from both consortia, 
 including workflows for integrating these allele frequencies with annotations 
 of the EBV contig (ED Fig. 6).
 
-### Additional notes 
+### Dependencies
 Packages that are not available on the standard R CRAN repository can be installed via Bioconductor or directly from the GitHub source code.
 For example, the following packages can be installed via these commands:
 
