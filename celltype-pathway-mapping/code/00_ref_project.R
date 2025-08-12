@@ -11,7 +11,7 @@ library(annotables)
 
 # Import reference
 ## NOTE: The human PBMC dataset can be downloaded here: https://azimuth.hubmapconsortium.org/references/#Human%20-%20PBMC 
-ref_path <- "~/Dropbox/main_papers/pearson/pearson_large_data_files/input/pbmc/pbmc_multimodal.h5seurat"
+ref_path <- "~/Downloads/pbmc_multimodal.h5seurat" # change path according to where you download the seurat object form the URL above
 
 options(future.globals.maxSize = 4000 * 1024^2)
 reference <- LoadH5Seurat(ref_path)
