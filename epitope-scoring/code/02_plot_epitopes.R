@@ -16,10 +16,10 @@ class1_peptidome <- rbind(
   fread("../intermediate/EBV_proteins_unique_10mers.csv"),
   fread("../intermediate/EBV_proteins_unique_11mers.csv")
 )
-
 class2_peptidome <- rbind(
   fread("../intermediate/EBV_proteins_unique_15mers.csv")
 )
+
 class1_candidate_peptides <- unique(class1_peptidome$Peptide)
 class2_candidate_peptides <- unique(class2_peptidome$Peptide)
 
@@ -84,8 +84,8 @@ class2df <- rbind(
 class2df <- class2df[!duplicated(class2df),]
 colnames(class2df) <- c("allele", "Peptide", "ID", "ELRank",  "HLA_class")
 
-intersect(class2df$Peptide, known_EBV[[3]]) %>% length()
-length(unique(class2df$Peptide))
+intersect(class2df$Peptide, known_EBV[[3]]) %>% length() # 7
+length(unique(class2df$Peptide)) # 110
 
 
 # class 1 binom test
@@ -94,7 +94,7 @@ binom.test(x = sum(hit_df_c1$Peptide %in% known_EBV[[3]]), n = dim(hit_df_c1)[1]
 # class 2 binom test
 binom.test(x = sum(class2df$Peptide %in% known_EBV[[3]]), n = dim(class2df)[1], p = (length(observed_MHC2)/ length(class2_candidate_peptides))) %>% str()
 
-#  7 / 106 total
+
 class2df$rel_position <- sapply(1:dim(class2df)[1], function(i){
   gene1 <- class2df[i,"ID"][[1]]
   peptide1 <- class2df[i,"Peptide"][[1]]
@@ -115,7 +115,7 @@ cowplot::ggsave2(cl2, file = "../plots/rank_score_MHC2.pdf", width = 2.5, height
 
 total_c12 <- rbind(full_merge_df_class2 %>% mutate(class = "class2"), 
                    full_merge_df  %>% mutate(class = "class1"))
-total_c12$known <- total_c12$Peptide %in% ( known_EBV[[3]])
+total_c12$known <- total_c12$Peptide %in% (known_EBV[[3]])
 
 write.table(total_c12, file = "../output/C12_allPeptides.tsv", sep = "\t", quote = FALSE, row.names = FALSE, col.names = TRUE)
 redgrey <- total_c12 %>%
