@@ -54,7 +54,7 @@ All custom analyses were performed using the `R 4.4.0` software environment.
 Set your working directory in `code` in the base of any of these three to run the R code line-by-line.
 
 ### all-of-us-notebooks
-This folder contains all of the major notebooks used for assembling the EBV DNA quantification, performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as an exposure for complex trait associations within AoU (Fig. 2,3; ED Fig. 1,3). The README within has more information about each subfolder, including a recent update to AoU workflows and how existing notebooks should be modified to accomodate this change.
+This folder contains all of the major notebooks used for assembling the EBV DNA quantification, performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as an exposure for complex trait associations within AoU (Fig. 2,3; ED Fig. 2). It also includes a notebook used to reconstruct HLA haplotypes for EUR ancestry individuals in AoU (ED Fig. 8). The README within has more information about each subfolder, including a recent update to AoU workflows and how existing notebooks should be modified to accomodate this change.
 
 ### celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 148 genes with protein-altering variation from the ExWAS analyses (Fig. 4). 

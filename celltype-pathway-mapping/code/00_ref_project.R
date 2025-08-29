@@ -1,4 +1,4 @@
-library(Seurat)
+library(Seurat) # should be V4
 library(sctransform)
 library(dplyr)
 library(BuenColors)
@@ -6,12 +6,14 @@ library(Matrix)
 library(data.table)
 library(cowplot)
 library(SeuratDisk)
+library(SeuratDisk)
 library(viridis)
 library(annotables)
 
 # Import reference
-## NOTE: The human PBMC dataset can be downloaded here: https://azimuth.hubmapconsortium.org/references/#Human%20-%20PBMC 
-ref_path <- "~/Downloads/pbmc_multimodal.h5seurat" # change path according to where you download the seurat object form the URL above
+## NOTE: The human PBMC dataset can be downloaded here: https://atlas.fredhutch.org/data/nygc/multimodal/pbmc_multimodal.h5seurat
+## Additional instructions on loading the dataset can be found here: https://satijalab.org/seurat/archive/v4.3/multimodal_reference_mapping
+ref_path <- "~/Downloads/pbmc_multimodal.h5seurat" # change path according to where you download the Seurat object form the URL above
 
 options(future.globals.maxSize = 4000 * 1024^2)
 reference <- LoadH5Seurat(ref_path)
