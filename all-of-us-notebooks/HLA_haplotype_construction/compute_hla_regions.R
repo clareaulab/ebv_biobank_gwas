@@ -32,5 +32,5 @@ width(try1) %>% sum() #1549980 bp total
 
 out <- try1 %>% as.data.frame() %>% mutate(out = sprintf("%s:%s-%s",seqnames,start,end)) %>% pull(out)
 
-# this file is further processed in the Jupyter 01_Run_T1K notebook
+# this file is further processed in the 01_Run_T1K notebook upload reference section
 writeLines(out,"chr6_simple_regions_v2.txt")
