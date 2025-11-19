@@ -54,13 +54,13 @@ All custom analyses were performed using the `R 4.4.0` software environment.
 Set your working directory in `code` in the base of any of these three to run the R code line-by-line.
 
 ### all-of-us-notebooks
-This folder contains all of the major notebooks used for assembling the EBV DNA quantification, performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as an exposure for complex trait associations within AoU (Fig. 2,3; ED Fig. 2). It also includes a notebook used to reconstruct HLA haplotypes for EUR ancestry individuals in AoU (ED Fig. 8). The README within has more information about each subfolder, including a recent update to AoU workflows and how existing notebooks should be modified to accomodate this change.
+This folder contains all of the major notebooks used for assembling the EBV DNA quantification, performing the EBV GWAS validation analyses, and the phenotypic associations using EBV as an exposure for complex trait associations within AoU (Fig. 2,3; ED Fig. 2). It also includes a notebook used to reconstruct HLA haplotypes for EUR ancestry individuals in AoU (ED Fig. 6). The README within has more information about each subfolder, including a recent update to AoU workflows and how existing notebooks should be modified to accomodate this change.
 
 ### celltype-pathway-mapping
 This folder contains code for pathway and cell type enrichment analyses of the 148 genes with protein-altering variation from the ExWAS analyses (Fig. 4). 
 
 ### epitope-scoring
-This folder contains code needed to create the processed peptide files, as well as results from running NetMHCpan (I+II). Additional files for enrichment analyses of known IEDB epitopes are also contained here (Fig. 5).
+This folder contains code needed to create the processed peptide files, as well as results from running NetMHCpan (I+II). Additional files for enrichment analyses of known IEDB epitopes are also contained here (Fig. 5). The first script contains how sliding windows of peptides containing the 4 VUS vs. WT (from the "Genetic diversity in EBV genomes" section of the paper) were generated. 
 
 ### mwe-1000G
 Due to restrictions of sharing data in UKB and AoU, we provide a sufficient minimal working example (mwe) to ensure users can go from `.cram/.bam` files in WGS to per-person, per-position quantifications of EBV DNA. This folder has an R-based `.ipynb` that pulls WGS files and estimates EBV abundance from the 1000 Genomes Project, which hosts all WGS data as publicly available. 
@@ -68,7 +68,7 @@ The [Terra workspace (publicly accessible) is available here](https://app.terra.
 The script assumes the default "copy" of this workspace. 
 
 ### viral-sequences
-This folder contains aggregated data of the EBV contig from both consortia, including workflows for integrating these allele frequencies with annotations of the EBV contig (ED Fig. 6).
+This folder contains aggregated data of the EBV contig from both consortia, including workflows for integrating these allele frequencies with annotations of the EBV contig (ED Fig. 7).
 
 ### Dependencies
 Packages that are not available on the standard R CRAN repository can be installed via Bioconductor or directly from the GitHub source code.
